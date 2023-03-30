@@ -12,11 +12,13 @@ module.exports = {
         name: "todJoin",
     },
     async execute(interaction) {
+        // calculates the average skips players have left in the game
         const skips = Math.round(
             (await interaction.client.sequelize.models.player.sum("skips")) /
                 (await interaction.client.sequelize.models.player.count())
         );
 
+        // tries to find player by user id, return this player with newPlayer. If no player can be found a new one is created
         const [newPlayer, created] =
             await interaction.client.sequelize.models.player.findOrCreate({
                 where: { id: interaction.user.id },
@@ -28,14 +30,17 @@ module.exports = {
                 },
             });
 
+        // if a player was found, reply that the user is already player
         if (!created) {
             await interaction.reply({
                 content: `${interaction.user.username} you already joined this round of Truth or Dare...`,
                 ephemeral: true,
             });
         } else {
+            // if no player was found:
             const message = interaction.message;
 
+            // saves all ids of players in aktPlayers
             const aktPlayers = await interaction.client.sequelize.query(
                 "SELECT `id` FROM `player`",
                 {
