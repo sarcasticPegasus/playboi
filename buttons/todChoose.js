@@ -4,13 +4,37 @@ const {
     ButtonStyle,
     EmbedBuilder,
 } = require("discord.js");
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
     data: {
         name: "todChoose",
     },
     async execute(interaction) {
+        const message = interaction.message;
         const todButtons = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("todLeave")
+                .setLabel("Leave")
+                .setStyle(ButtonStyle.Danger),
+            new ButtonBuilder()
+                .setCustomId("todEnd")
+                .setLabel("End")
+                .setStyle(ButtonStyle.Danger)
+        );
+        const startOrJoin = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("todJoin")
+                .setLabel("Join")
+                .setStyle(ButtonStyle.Secondary)
+                .setDisabled(true),
+            new ButtonBuilder()
+                .setCustomId("todChoose")
+                .setLabel("Start")
+                .setStyle(ButtonStyle.Secondary)
+                .setDisabled(true)
+        );
+        const truthOrDareButtons = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId("truthTod")
                 .setLabel("Truth")
@@ -29,9 +53,44 @@ module.exports = {
             .setTitle("Truth or Dare")
             .setDescription("Truth or Dare, @player?");
 
+        /*
+
+        const [qGiver] = await interaction.client.sequelize.query(
+            "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+            {
+                type: QueryTypes.SELECT,
+            }
+        );
+
+        let [qTaker] = await interaction.client.sequelize.query(
+            "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+            {
+                type: QueryTypes.SELECT,
+            }
+        );
+
+        while (qGiver != qTaker) {
+            let [qTaker] = await interaction.client.sequelize.query(
+                "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+                {
+                    type: QueryTypes.SELECT,
+                }
+            );
+        }
+
+        interaction.client.sequelize.models.todSession.upsert({
+            qGiver: Object.values(qGiver).toString(),
+            qTaker: qTaker,
+        });
+
+        console.log(qGiver);
+        */
+
+        message.edit({ components: [startOrJoin] });
+
         await interaction.reply({
             embeds: [truthOrDare],
-            components: [todButtons],
+            components: [todButtons, truthOrDareButtons],
         });
     },
 };

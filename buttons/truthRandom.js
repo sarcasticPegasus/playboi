@@ -24,6 +24,16 @@ module.exports = {
             .setColor(0x0099ff)
             .setTitle("Truth or Dare")
             .setDescription(question.get("content"));
+        const todButtons = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("todLeave")
+                .setLabel("Leave")
+                .setStyle(ButtonStyle.Danger),
+            new ButtonBuilder()
+                .setCustomId("todEnd")
+                .setLabel("End")
+                .setStyle(ButtonStyle.Danger)
+        );
         const skipOrComfirm = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId("confirm")
@@ -35,9 +45,9 @@ module.exports = {
                 .setStyle(ButtonStyle.Primary)
         );
         if (question) {
-            await interaction.reply({
+            message.edit({
                 embeds: [truthOrDare],
-                components: [skipOrComfirm],
+                components: [todButtons, skipOrComfirm],
             });
         } else {
             console.log(`Could not find question with id: ${rand}`);

@@ -3,6 +3,7 @@ const {
     ActionRowBuilder,
     ButtonBuilder,
     ButtonStyle,
+    userMention,
     EmbedBuilder,
 } = require("discord.js");
 
@@ -21,7 +22,7 @@ module.exports = {
     async execute(interaction) {
         const skips = interaction.options.getInteger("skips") ?? 0;
 
-        const todButtons = new ActionRowBuilder().addComponents(
+        const startOrJoin = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId("todJoin")
                 .setLabel("Join")
@@ -31,16 +32,37 @@ module.exports = {
                 .setLabel("Start")
                 .setStyle(ButtonStyle.Primary)
         );
+        const todButtons = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("todLeave")
+                .setLabel("Leave")
+                .setStyle(ButtonStyle.Danger),
+            new ButtonBuilder()
+                .setCustomId("todEnd")
+                .setLabel("End")
+                .setStyle(ButtonStyle.Danger)
+        );
         const truthOrDare = new EmbedBuilder()
             .setColor(0x0099ff)
             .setTitle("Truth or Dare")
             .setDescription(
-                `@everyone , gather round for an epic round of Truth or Dare!`
+                `@everyone gather round for an epic round of Truth or Dare!`
             )
             .addFields({
                 name: "The Players are:",
-                value: `@${interaction.user.username}`,
+                value: `${userMention(interaction.user.id)}`,
+            })
+            .addFields({
+                name: "Numbers of Skips:",
+                value: `You all start with ${skips} skips`,
             });
+
+        interaction.client.sequelize.models.todSession.upsert({
+            id: 1,
+            skips: skips,
+            qGiver: null,
+            qTaker: null,
+        });
 
         interaction.client.sequelize.models.player.upsert({
             id: interaction.user.id,
@@ -51,7 +73,7 @@ module.exports = {
 
         await interaction.reply({
             embeds: [truthOrDare],
-            components: [todButtons],
+            components: [todButtons, startOrJoin],
         });
     },
 };

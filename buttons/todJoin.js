@@ -59,6 +59,10 @@ module.exports = {
                 .addFields({
                     name: "The Players are:",
                     value: aktPlayersString,
+                })
+                .addFields({
+                    name: "Numbers of Skips:",
+                    value: `You all start with ${skips} skips`,
                 });
             message.edit({ embeds: [truthOrDare] });
 
