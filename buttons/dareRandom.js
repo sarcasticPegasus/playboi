@@ -8,7 +8,7 @@ const { QueryTypes } = require("sequelize");
 
 module.exports = {
     data: {
-        name: "truthRandom",
+        name: "dareRandom",
     },
 
     async execute(interaction) {
@@ -26,11 +26,10 @@ module.exports = {
             });
         } else {
             const message = interaction.message;
-            const rows =
-                await interaction.client.sequelize.models.truth.count();
+            const rows = await interaction.client.sequelize.models.dare.count();
             const rand = Math.floor(Math.random() * rows) + 1;
             const question =
-                await interaction.client.sequelize.models.truth.findOne({
+                await interaction.client.sequelize.models.dare.findOne({
                     where: { id: rand },
                 });
             const truthOrDare = new EmbedBuilder()
@@ -63,7 +62,7 @@ module.exports = {
                     components: [todButtons, skipOrComfirm],
                 });
             } else {
-                console.log(`Could not find question with id: ${rand}`);
+                console.log(`Could not find task with id: ${rand}`);
             }
         }
     },

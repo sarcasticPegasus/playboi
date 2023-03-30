@@ -45,7 +45,7 @@ module.exports = {
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(true),
                 new ButtonBuilder()
-                    .setCustomId("todChoose")
+                    .setCustomId("todStart")
                     .setLabel("Start")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(true)
