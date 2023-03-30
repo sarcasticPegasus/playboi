@@ -53,38 +53,42 @@ module.exports = {
             .setTitle("Truth or Dare")
             .setDescription("Truth or Dare, @player?");
 
-        /*
-
         const [qGiver] = await interaction.client.sequelize.query(
-            "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+            "SELECT `id` FROM `player` WHERE `active` ORDER BY RANDOM() LIMIT 1",
             {
                 type: QueryTypes.SELECT,
             }
         );
 
         let [qTaker] = await interaction.client.sequelize.query(
-            "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+            "SELECT `id` FROM `player` WHERE `active` ORDER BY RANDOM() LIMIT 1",
             {
                 type: QueryTypes.SELECT,
             }
         );
 
-        while (qGiver != qTaker) {
-            let [qTaker] = await interaction.client.sequelize.query(
-                "SELECT `id` FROM `player` ORDER BY RANDOM() LIMIT 1",
+        while (
+            Object.values(qGiver).toString() == Object.values(qTaker).toString()
+        ) {
+            [qTaker] = await interaction.client.sequelize.query(
+                "SELECT `id` FROM `player` WHERE `active` ORDER BY RANDOM() LIMIT 1",
                 {
                     type: QueryTypes.SELECT,
                 }
             );
         }
 
-        interaction.client.sequelize.models.todSession.upsert({
-            qGiver: Object.values(qGiver).toString(),
-            qTaker: qTaker,
-        });
-
-        console.log(qGiver);
-        */
+        interaction.client.sequelize.models.todSession.update(
+            {
+                qGiver: Object.values(qGiver).toString(),
+                qTaker: Object.values(qTaker).toString(),
+            },
+            {
+                where: {
+                    id: 1,
+                },
+            }
+        );
 
         message.edit({ components: [startOrJoin] });
 
