@@ -47,7 +47,7 @@ module.exports = {
 
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
-                .setTitle("Truth or Dare")
+                .setTitle("Truth")
                 .setDescription(
                     `${userMention(
                         Object.values(qGiver).toString()

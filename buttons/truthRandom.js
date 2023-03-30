@@ -35,7 +35,7 @@ module.exports = {
                 });
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
-                .setTitle("Truth or Dare")
+                .setTitle("Truth")
                 .setDescription(question.get("content"));
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
