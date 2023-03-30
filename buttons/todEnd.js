@@ -23,5 +23,5 @@ module.exports = {
         await interaction.reply(
             `${interaction.user.username} has ended this round of Truth or Dare...`
         );
-    },
+    }, // possible bug: end can be pressed any number of times. Due to no negative consequences except when scrolling to an old game, I ignore this for now.
 };

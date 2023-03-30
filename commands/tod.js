@@ -28,7 +28,7 @@ module.exports = {
                 .setLabel("Join")
                 .setStyle(ButtonStyle.Primary),
             new ButtonBuilder()
-                .setCustomId("todChoose")
+                .setCustomId("todStart")
                 .setLabel("Start")
                 .setStyle(ButtonStyle.Primary)
         );

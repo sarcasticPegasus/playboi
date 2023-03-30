@@ -3,7 +3,9 @@ const {
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
+    userMention,
 } = require("discord.js");
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
     data: {
@@ -11,60 +13,84 @@ module.exports = {
     },
 
     async execute(interaction) {
-        const message = interaction.message;
-
-        const todButtons = new ActionRowBuilder().addComponents(
-            new ButtonBuilder()
-                .setCustomId("todLeave")
-                .setLabel("Leave")
-                .setStyle(ButtonStyle.Danger),
-            new ButtonBuilder()
-                .setCustomId("todEnd")
-                .setLabel("End")
-                .setStyle(ButtonStyle.Danger)
+        const [qGiver] = await interaction.client.sequelize.query(
+            "SELECT `qGiver` FROM `todSession`",
+            {
+                type: QueryTypes.SELECT,
+            }
+        );
+        const [qTaker] = await interaction.client.sequelize.query(
+            "SELECT `qTaker` FROM `todSession`",
+            {
+                type: QueryTypes.SELECT,
+            }
         );
 
-        const truthOrDare = new EmbedBuilder()
-            .setColor(0x0099ff)
-            .setTitle("Truth or Dare")
-            .setDescription(
-                "@player1, do you want to ask @player2 a custom or a random question? (You can press random up to 3 times if you are not satisfied with the first random question.)"
+        if (Object.values(qTaker).toString() != interaction.user.id) {
+            await interaction.reply({
+                content: `You don't get to decide here!`,
+                ephemeral: true,
+            });
+        } else {
+            const message = interaction.message;
+
+            const todButtons = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("todLeave")
+                    .setLabel("Leave")
+                    .setStyle(ButtonStyle.Danger),
+                new ButtonBuilder()
+                    .setCustomId("todEnd")
+                    .setLabel("End")
+                    .setStyle(ButtonStyle.Danger)
             );
 
-        const truthOrDareButtons = new ActionRowBuilder().addComponents(
-            new ButtonBuilder()
-                .setCustomId("truthTod")
-                .setLabel("Truth")
-                .setStyle(ButtonStyle.Success)
-                .setDisabled(true),
-            new ButtonBuilder()
-                .setCustomId("dareTod")
-                .setLabel("Dare")
-                .setStyle(ButtonStyle.Secondary)
-                .setDisabled(true),
-            new ButtonBuilder()
-                .setCustomId("randomTod")
-                .setLabel("Random")
-                .setStyle(ButtonStyle.Secondary)
-                .setDisabled(true)
-        );
+            const truthOrDare = new EmbedBuilder()
+                .setColor(0x0099ff)
+                .setTitle("Truth or Dare")
+                .setDescription(
+                    `${userMention(
+                        Object.values(qGiver).toString()
+                    )}, do you want to ask ${userMention(
+                        Object.values(qTaker).toString()
+                    )} a custom or a random question? (You can press random up to 3 times if you are not satisfied with the first random question.)`
+                );
 
-        const custOrRand = new ActionRowBuilder().addComponents(
-            new ButtonBuilder()
-                .setCustomId("truthCustom")
-                .setLabel("Custom")
-                .setStyle(ButtonStyle.Primary),
-            new ButtonBuilder()
-                .setCustomId("truthRandom")
-                .setLabel("Random")
-                .setStyle(ButtonStyle.Primary)
-        );
+            const truthOrDareButtons = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("truthTod")
+                    .setLabel("Truth")
+                    .setStyle(ButtonStyle.Success)
+                    .setDisabled(true),
+                new ButtonBuilder()
+                    .setCustomId("dareTod")
+                    .setLabel("Dare")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(true),
+                new ButtonBuilder()
+                    .setCustomId("randomTod")
+                    .setLabel("Random")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(true)
+            );
 
-        message.edit({ components: [truthOrDareButtons] });
+            const custOrRand = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("truthCustom")
+                    .setLabel("Custom")
+                    .setStyle(ButtonStyle.Primary),
+                new ButtonBuilder()
+                    .setCustomId("truthRandom")
+                    .setLabel("Random")
+                    .setStyle(ButtonStyle.Primary)
+            );
 
-        await interaction.reply({
-            embeds: [truthOrDare],
-            components: [todButtons, custOrRand],
-        });
+            message.edit({ components: [truthOrDareButtons] });
+
+            await interaction.reply({
+                embeds: [truthOrDare],
+                components: [todButtons, custOrRand],
+            });
+        }
     },
 };
