@@ -26,6 +26,7 @@ module.exports = {
                     id: interaction.user.id,
                     username: interaction.user.username,
                     skips: skips,
+                    hasConfirmed: false,
                     active: true,
                 },
             });

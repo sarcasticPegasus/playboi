@@ -38,11 +38,11 @@ module.exports = {
             );
             const skipOrComfirm = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
-                    .setCustomId("confirm")
+                    .setCustomId("todConfirm")
                     .setLabel("Confirm [X/X]")
                     .setStyle(ButtonStyle.Primary),
                 new ButtonBuilder()
-                    .setCustomId("skip")
+                    .setCustomId("todSkip")
                     .setLabel("Skip [X/X]")
                     .setStyle(ButtonStyle.Primary)
             );

@@ -3,6 +3,7 @@ const {
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
+    userMention,
 } = require("discord.js");
 const { QueryTypes } = require("sequelize");
 
@@ -39,7 +40,9 @@ module.exports = {
                 .setDescription(
                     `**${question.get(
                         "content"
-                    )}** \n question by ${userMention(client.user.id)}`
+                    )}** \n question by ${userMention(
+                        interaction.client.user.id
+                    )}`
                 );
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
@@ -53,11 +56,11 @@ module.exports = {
             );
             const skipOrComfirm = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
-                    .setCustomId("confirm")
+                    .setCustomId("todConfirm")
                     .setLabel("Confirm [X/X]")
                     .setStyle(ButtonStyle.Primary),
                 new ButtonBuilder()
-                    .setCustomId("skip")
+                    .setCustomId("todSkip")
                     .setLabel("Skip [X/X]")
                     .setStyle(ButtonStyle.Primary)
             );
@@ -73,17 +76,17 @@ module.exports = {
                     .setStyle(ButtonStyle.Success)
                     .setDisabled(true)
             );
-            if (question) {
-                message.edit({ components: [custOrRand] });
-                await interaction.reply({
-                    embeds: [truthOrDare],
-                    components: [todButtons, skipOrComfirm],
-                });
-            } else {
-                await interaction.reply(
-                    `Could not find question with id: ${rand}`
-                );
-            }
+            //if (question) {
+            message.edit({ components: [custOrRand] });
+            await interaction.reply({
+                embeds: [truthOrDare],
+                components: [todButtons, skipOrComfirm],
+            });
+            //} else {
+            //    await interaction.reply(
+            //        `Could not find question with id: ${rand}`
+            //    );
+            //}
         }
     },
 };

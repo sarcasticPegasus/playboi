@@ -19,6 +19,10 @@ module.exports = async (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            hasConfirmed: {
+                type: DataTypes.BOOLEAN,
+                allowNull: false,
+            },
             active: { type: DataTypes.BOOLEAN, allowNull: false },
         },
 

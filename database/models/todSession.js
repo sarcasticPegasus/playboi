@@ -15,6 +15,10 @@ module.exports = async (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            confirmed: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
             qGiver: {
                 type: DataTypes.STRING,
                 allowNull: true,

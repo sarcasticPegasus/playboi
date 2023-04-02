@@ -60,6 +60,7 @@ module.exports = {
         interaction.client.sequelize.models.todSession.upsert({
             id: 1,
             skips: skips,
+            confirmed: 0,
             qGiver: null,
             qTaker: null,
         });
@@ -68,6 +69,7 @@ module.exports = {
             id: interaction.user.id,
             username: interaction.user.username,
             skips: skips,
+            hasConfirmed: false,
             active: true,
         });
 
