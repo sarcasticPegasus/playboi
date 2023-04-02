@@ -3,6 +3,7 @@ const {
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
+    userMention,
 } = require("discord.js");
 const { QueryTypes } = require("sequelize");
 
@@ -28,14 +29,19 @@ module.exports = {
             const message = interaction.message;
             const rows = await interaction.client.sequelize.models.dare.count();
             const rand = Math.floor(Math.random() * rows) + 1;
-            const question =
-                await interaction.client.sequelize.models.dare.findOne({
+            const dare = await interaction.client.sequelize.models.dare.findOne(
+                {
                     where: { id: rand },
-                });
+                }
+            );
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
                 .setTitle("Dare")
-                .setDescription(question.get("content"));
+                .setDescription(
+                    `**${dare.get("content")}** \n question by ${userMention(
+                        client.user.id
+                    )}`
+                );
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                     .setCustomId("todLeave")

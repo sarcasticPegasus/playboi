@@ -36,7 +36,11 @@ module.exports = {
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
                 .setTitle("Truth")
-                .setDescription(question.get("content"));
+                .setDescription(
+                    `**${question.get(
+                        "content"
+                    )}** \n question by ${userMention(client.user.id)}`
+                );
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                     .setCustomId("todLeave")
