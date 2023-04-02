@@ -56,13 +56,26 @@ module.exports = {
                     .setLabel("Skip [X/X]")
                     .setStyle(ButtonStyle.Primary)
             );
+            const custOrRand = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("truthCustom")
+                    .setLabel("Custom")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(true),
+                new ButtonBuilder()
+                    .setCustomId("truthRandom")
+                    .setLabel("Random")
+                    .setStyle(ButtonStyle.Success)
+                    .setDisabled(true)
+            );
             if (question) {
-                message.edit({
+                message.edit({ components: [custOrRand] });
+                await interaction.reply({
                     embeds: [truthOrDare],
                     components: [todButtons, skipOrComfirm],
                 });
             } else {
-                console.log(`Could not find task with id: ${rand}`);
+                await interaction.reply(`Could not find task with id: ${rand}`);
             }
         }
     },
