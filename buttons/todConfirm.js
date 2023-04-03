@@ -149,7 +149,17 @@ module.exports = {
                         }
                     );
 
-                    // IMPORTANT, FIXING NEEDED: update all players and set their hasConfirmed status to false
+                    // update all players and set their hasConfirmed status to false
+                    interaction.client.sequelize.models.player.update(
+                        {
+                            hasConfirmed: false,
+                        },
+                        {
+                            where: {
+                                hasConfirmed: true,
+                            },
+                        }
+                    );
 
                     // declare embed
                     const truthOrDare = new EmbedBuilder()

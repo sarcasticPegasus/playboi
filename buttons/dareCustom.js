@@ -36,14 +36,34 @@ module.exports = {
                     .setLabel("End")
                     .setStyle(ButtonStyle.Danger)
             );
+            //determining how many skips are left
+            const aktSession =
+                await interaction.client.sequelize.models.todSession.findOne({
+                    where: { id: 1 },
+                });
+            const qGiver =
+                await interaction.client.sequelize.models.player.findOne({
+                    where: { id: aktSession.get("qTaker") },
+                });
+            const requiredConfirmers = Math.floor(
+                (await interaction.client.sequelize.models.player.count({
+                    where: {
+                        active: true,
+                    },
+                })) / 2
+            );
             const skipOrComfirm = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                     .setCustomId("todConfirm")
-                    .setLabel("Confirm [X/X]")
+                    .setLabel(`Confirm [0/${requiredConfirmers}]`)
                     .setStyle(ButtonStyle.Primary),
                 new ButtonBuilder()
                     .setCustomId("todSkip")
-                    .setLabel("Skip [X/X]")
+                    .setLabel(
+                        `Skip [${qGiver.get("skips")}/${aktSession.get(
+                            "skips"
+                        )}]`
+                    )
                     .setStyle(ButtonStyle.Primary)
             );
             const custOrRand = new ActionRowBuilder().addComponents(
