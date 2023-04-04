@@ -17,7 +17,7 @@ module.exports = async (sequelize) => {
                 allowNull: false,
                 unique: true,
             },
-            rating: { type: DataTypes.STRING, allowNull: false },
+            rating: { type: DataTypes.INTEGER, allowNull: false },
         },
 
         // Options

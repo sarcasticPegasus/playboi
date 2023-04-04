@@ -1,7 +1,88 @@
 [
-    { "content": "Peel a banana with your teeth.", "rating": "12+" },
+    { "content": "Peel a banana with your teeth.", "rating": "12" },
     {
         "content": "Tell an erotic story to a photo of a celebrity.",
-        "rating": "16+"
+        "rating": "16"
+    },
+    { "content": "Post your most embarrassing selfie", "rating": "12" },
+    { "content": "Hug the person on your left for 1 minute.", "rating": "0" },
+    { "content": "Imitate a horny dog.", "rating": "16" },
+    { "content": "Find out which person here smells best.", "rating": "12" },
+    { "content": "Describe the last sex dream you had.", "rating": "18" },
+    {
+        "content": "Switch your camera on and spell your name with your ass.",
+        "rating": "16"
+    },
+    {
+        "content": "Google filthy/sexy nicknames and choose one as your server nickname for one week.",
+        "rating": "16"
+    },
+    {
+        "content": "Speak english with a very bad german accent for the next 5 minutes",
+        "rating": "0"
+    },
+    {
+        "content": "The person on your left has to slap you on the butt.",
+        "rating": "16"
+    },
+    {
+        "content": "The person on your left has to gently whip you with a belt for half a minute.",
+        "rating": "18"
+    },
+    {
+        "content": "Switch your camera on and twerk for half a minute.",
+        "rating": "16"
+    },
+    {
+        "content": "Switch your camera on and undress except your underwear.",
+        "rating": "18"
+    },
+    {
+        "content": "Give something to your left neighbor, mouth to mouth.",
+        "rating": "16"
+    },
+    {
+        "content": "Lapdance on top of your left neighbor for half a minute.",
+        "rating": "18"
+    },
+    {
+        "content": "Call the fifth person in your call history and just laugh in the phone, than after 10 seconds of laughter, hang up.",
+        "rating": "12"
+    },
+    {
+        "content": "Show everyone your screen and slowly scroll through your gallary.",
+        "rating": "16"
+    },
+    {
+        "content": "Switch you camera on and mime a blowjob using a banana or other similar object.",
+        "rating": "18"
+    },
+    {
+        "content": "Show the first picture you took with your cell phone.",
+        "rating": "0"
+    },
+    {
+        "content": "Show the last picture you deleted, if available. Else, show the first picture you took with your cell phone.",
+        "rating": "12"
+    },
+    {
+        "content": "Choose a celebrity and act like that celebrity for 1 hour.",
+        "rating": "0"
+    },
+    {
+        "content": "Choose a fictional chararacter and act like that character for 1 hour.",
+        "rating": "0"
+    },
+    {
+        "content": "Take a picture in which you use a piece of clothing in a completely wrong way. For example: use your pants as a shirt.",
+        "rating": "0"
+    },
+    {
+        "content": "Use the first word of the last five messages you sent to construct a short story.",
+        "rating": "0"
+    },
+    {
+        "content": "Take a picture on which you strike a pose that could only fit a nude (or thirsttrap). Clothes are allowed.",
+        "rating": "18"
     }
 ]

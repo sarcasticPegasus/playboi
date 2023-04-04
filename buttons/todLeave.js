@@ -66,7 +66,7 @@ module.exports = {
             }
         } else {
             await interaction.reply({
-                content: `${interaction.user.username}, you already left... are you stupid or something? `,
+                content: `${interaction.user.username}, you are not part of the game, why are you trying to leave? `,
                 ephemeral: true,
             });
         }

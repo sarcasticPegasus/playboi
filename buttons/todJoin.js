@@ -31,49 +31,35 @@ module.exports = {
                 },
             });
 
-        // if a player was found, reply that the user is already player
+        // if a player was found, check wether the player is inactive, if yes, set to active, if not, reply that the user is already player
         if (!created) {
-            await interaction.reply({
-                content: `${interaction.user.username} you already joined this round of Truth or Dare...`,
-                ephemeral: true,
-            });
-        } else {
-            // if no player was found:
-            const message = interaction.message;
-
-            // saves all ids of players in aktPlayers
-            const aktPlayers = await interaction.client.sequelize.query(
-                "SELECT `id` FROM `player`",
-                {
-                    type: QueryTypes.SELECT,
-                }
-            );
-            let aktPlayersString = "";
-            const iterator = aktPlayers.values();
-            for (const value of iterator) {
-                aktPlayersString += `${userMention(
-                    Object.values(value).toString()
-                )}\n`;
-            }
-
-            const truthOrDare = new EmbedBuilder()
-                .setColor(0x0099ff)
-                .setTitle("Truth or Dare")
-                .setDescription(
-                    `@everyone , gather round for an epic round of Truth or Dare!`
-                )
-                .addFields({
-                    name: "The Players are:",
-                    value: aktPlayersString,
-                })
-                .addFields({
-                    name: "Numbers of Skips:",
-                    value: `You all start with ${skips} skips`,
+            const player =
+                await interaction.client.sequelize.models.player.findOne({
+                    where: { id: interaction.user.id, active: false },
                 });
-            message.edit({ embeds: [truthOrDare] });
-
+            if (player == null) {
+                await interaction.reply({
+                    content: `${interaction.user.username} you already joined this round of Truth or Dare...`,
+                    ephemeral: true,
+                });
+            } else {
+                await interaction.client.sequelize.models.player.update(
+                    {
+                        active: true,
+                    },
+                    {
+                        where: {
+                            id: interaction.user.id,
+                        },
+                    }
+                );
+                await interaction.reply(
+                    `${interaction.user.username} joined the round!`
+                );
+            }
+        } else {
             await interaction.reply(
-                `${interaction.user.username} joined the session!`
+                `${interaction.user.username} joined the round!`
             );
         }
     },

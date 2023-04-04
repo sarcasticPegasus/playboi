@@ -1,7 +1,147 @@
 [
-    { "content": "What food do you think is sexy?", "rating": "12+" },
+    { "content": "What food do you think is sexy?", "rating": "12" },
+    { "content": "What happened on your worst date?", "rating": "16" },
+    { "content": "Who got your first kiss?", "rating": "12" },
+    { "content": "Who here has the finest butt?", "rating": "16" },
+    { "content": "Have you ever had a crush on a teacher?", "rating": "16" },
+    { "content": "Who here would you like to see naked?", "rating": "18" },
+    { "content": "Do you think you'd be a good parent?", "rating": "0" },
+    { "content": "How far would you go on a first date?", "rating": "16" },
+    { "content": "Who here is the most attractive to you?", "rating": "16" },
+    { "content": "What do you value most in a relationship?", "rating": "12" },
+    { "content": "What is your biggest turn on?", "rating": "18" },
+    { "content": "What is your strangest turn on?", "rating": "18" },
+    { "content": "What is your most random turn on?", "rating": "18" },
+    { "content": "What is your kinkiest turn on?", "rating": "18" },
+    { "content": "Rather dominant or submissive?", "rating": "18" },
+    { "content": "Do you like bondage during sex?", "rating": "18" },
+    { "content": "Have you ever read an erotic novel?", "rating": "16" },
+    { "content": "How kinky are you?", "rating": "18" },
+    { "content": "Do you prefer a little kinky or vanilla?", "rating": "18" },
+    { "content": "Do you prefer chokeing or being choked?", "rating": "18" },
+    { "content": "Have you ever sent nudes?", "rating": "18" },
+    { "content": "How often do you watch porn?", "rating": "16" },
+    { "content": "Do you own or use sex toys?", "rating": "18" },
+    { "content": "What body part are you most attracted to?", "rating": "16" },
+    { "content": "What should a person wear to turn you on?", "rating": "16" },
+    {
+        "content": "What is your most visited website for porn?",
+        "rating": "16"
+    },
+    {
+        "content": "Have you ever touched your private parts in public, and no one noticed?",
+        "rating": "16"
+    },
+    {
+        "content": "Who did you check out the most among all the people here?",
+        "rating": "16"
+    },
+    {
+        "content": "What is the craziest thing you have done to attract your crush towards you?",
+        "rating": "16"
+    },
+    {
+        "content": "Have you ever got horny seeing a celebrity half-naked online?",
+        "rating": "16"
+    },
+    {
+        "content": "What part of your body are you most confident about?",
+        "rating": "12"
+    },
+    {
+        "content": "What was the most embarrassing thing you accidentally texted to the wrong person?",
+        "rating": "12"
+    },
+    {
+        "content": "If you could switch genders for just one day, would you do it?",
+        "rating": "0"
+    },
+    {
+        "content": "Which part of a person do you notice first?",
+        "rating": "16"
+    },
+    { "content": "What is your favorite porn category?", "rating": "16" },
+    {
+        "content": "Have you ever accused someone else of farting after you farted?",
+        "rating": "0"
+    },
+    { "content": "What got you into the most trouble at home?", "rating": "0" },
+    { "content": "How long is your dick/vagina?", "rating": "18" },
+    {
+        "content": "What is your scariest imagination when you fall to sleep?",
+        "rating": "0"
+    },
+    {
+        "content": "Have you ever fantasized about your friends?",
+        "rating": "16"
+    },
+    {
+        "content": "How long has it been since you last masturbated?",
+        "rating": "18"
+    },
+    {
+        "content": "Did you ever fantasize about having sex with anyone here?",
+        "rating": "18"
+    },
+    {
+        "content": "How many fingers did you try to put inside when you were masturbating for the first time?",
+        "rating": "18"
+    },
+    {
+        "content": "Which fictional character are you most attracted to?",
+        "rating": "16"
+    },
+    {
+        "content": "Which celebrity would you not mind having a one-night stand with?",
+        "rating": "16"
+    },
+    {
+        "content": "If you had to choose between dating someone ugly who was good in bed or dating someone hot who was bad in bed, which would you choose?",
+        "rating": "16"
+    },
+    {
+        "content": "Who here would you have sex with, if you had to pick one?",
+        "rating": "18"
+    },
+    {
+        "content": "Would you be friends with benefits with anyone from this group?",
+        "rating": "18"
+    },
+    { "content": "Who here is the most attractive to you?", "rating": "16" },
+    {
+        "content": "Would you like to have a threesome? If yes, which gender constallation?",
+        "rating": "18"
+    },
+    {
+        "content": "Who rejected you last and how did it happen?",
+        "rating": "16"
+    },
+    {
+        "content": "Did you ever (accidentally) steal anything?",
+        "rating": "12"
+    },
+    {
+        "content": "Could you tell us about how you got one of your scars?",
+        "rating": "0"
+    },
+    {
+        "content": "What was the most embarrassing thing you did in elementary school?",
+        "rating": "12"
+    },
+    {
+        "content": "What was your most random sexdream or fantasy?",
+        "rating": "18"
+    },
+    {
+        "content": "What was the funniest event you had or saw that involved an animal?",
+        "rating": "0"
+    },
+    {
+        "content": "Why did you fight with your family in the past? What were the reasons?",
+        "rating": "0"
+    },
     {
         "content": "Which celebrity do you have a big crush on?",
-        "rating": "12+"
+        "rating": "12"
     }
 ]

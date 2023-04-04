@@ -13,14 +13,22 @@ module.exports = {
     },
 
     async execute(interaction) {
-        const [qGiver] = await interaction.client.sequelize.query(
-            "SELECT `qGiver` FROM `todSession`",
+        const aktSession =
+            await interaction.client.sequelize.models.todSession.findOne({
+                where: { id: 1 },
+            });
+        const qGiver = await interaction.client.sequelize.models.player.findOne(
             {
-                type: QueryTypes.SELECT,
+                where: { id: aktSession.get("qGiver") },
+            }
+        );
+        const qTaker = await interaction.client.sequelize.models.player.findOne(
+            {
+                where: { id: aktSession.get("qTaker") },
             }
         );
 
-        if (Object.values(qGiver).toString() != interaction.user.id) {
+        if (qGiver.get("id") != interaction.user.id) {
             await interaction.reply({
                 content: `You don't get to ask questions here!`,
                 ephemeral: true,
@@ -34,15 +42,30 @@ module.exports = {
                     where: { id: rand },
                 }
             );
+            /*
+            const dare = await interaction.client.sequelize.models.dare.findAll(
+                {
+                    where: { rating: "pRating" },
+                    order: interaction.client.sequelize.random(),
+                    limit: 1,
+                }
+            );
+            */
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
                 .setTitle("Dare")
                 .setDescription(
-                    `**${dare.get("content")}** \n question by ${userMention(
+                    `${userMention(qTaker.get("id"))}:**${dare.get(
+                        "content"
+                    )}** \n question by ${userMention(
                         interaction.client.user.id
                     )}`
                 );
             const todButtons = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("todJoin")
+                    .setLabel("Join")
+                    .setStyle(ButtonStyle.Danger),
                 new ButtonBuilder()
                     .setCustomId("todLeave")
                     .setLabel("Leave")
@@ -53,14 +76,6 @@ module.exports = {
                     .setStyle(ButtonStyle.Danger)
             );
             //determining how many skips are left
-            const aktSession =
-                await interaction.client.sequelize.models.todSession.findOne({
-                    where: { id: 1 },
-                });
-            const qGiver =
-                await interaction.client.sequelize.models.player.findOne({
-                    where: { id: aktSession.get("qTaker") },
-                });
             const requiredConfirmers = Math.floor(
                 (await interaction.client.sequelize.models.player.count({
                     where: {
@@ -76,7 +91,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setCustomId("todSkip")
                     .setLabel(
-                        `Skip [${qGiver.get("skips")}/${aktSession.get(
+                        `Skip [${qTaker.get("skips")}/${aktSession.get(
                             "skips"
                         )}]`
                     )

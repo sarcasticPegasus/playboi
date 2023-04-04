@@ -24,7 +24,7 @@ module.exports = {
 
         const startOrJoin = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
-                .setCustomId("todJoin")
+                .setCustomId("todInitialJoin")
                 .setLabel("Join")
                 .setStyle(ButtonStyle.Primary),
             new ButtonBuilder()

@@ -12,14 +12,22 @@ module.exports = {
         name: "dareCustom",
     },
     async execute(interaction) {
-        const [qGiver] = await interaction.client.sequelize.query(
-            "SELECT `qGiver` FROM `todSession`",
+        const aktSession =
+            await interaction.client.sequelize.models.todSession.findOne({
+                where: { id: 1 },
+            });
+        const qGiver = await interaction.client.sequelize.models.player.findOne(
             {
-                type: QueryTypes.SELECT,
+                where: { id: aktSession.get("qGiver") },
+            }
+        );
+        const qTaker = await interaction.client.sequelize.models.player.findOne(
+            {
+                where: { id: aktSession.get("qTaker") },
             }
         );
 
-        if (Object.values(qGiver).toString() != interaction.user.id) {
+        if (qGiver.get("id") != interaction.user.id) {
             await interaction.reply({
                 content: `You don't get to pick dares here!`,
                 ephemeral: true,
@@ -27,6 +35,10 @@ module.exports = {
         } else {
             const origMessage = interaction.message;
             const todButtons = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId("todJoin")
+                    .setLabel("Join")
+                    .setStyle(ButtonStyle.Danger),
                 new ButtonBuilder()
                     .setCustomId("todLeave")
                     .setLabel("Leave")
@@ -37,14 +49,6 @@ module.exports = {
                     .setStyle(ButtonStyle.Danger)
             );
             //determining how many skips are left
-            const aktSession =
-                await interaction.client.sequelize.models.todSession.findOne({
-                    where: { id: 1 },
-                });
-            const qGiver =
-                await interaction.client.sequelize.models.player.findOne({
-                    where: { id: aktSession.get("qTaker") },
-                });
             const requiredConfirmers = Math.floor(
                 (await interaction.client.sequelize.models.player.count({
                     where: {
@@ -60,7 +64,7 @@ module.exports = {
                 new ButtonBuilder()
                     .setCustomId("todSkip")
                     .setLabel(
-                        `Skip [${qGiver.get("skips")}/${aktSession.get(
+                        `Skip [${qTaker.get("skips")}/${aktSession.get(
                             "skips"
                         )}]`
                     )
@@ -102,7 +106,7 @@ module.exports = {
                     await channel
                         .awaitMessages({
                             filter,
-                            time: 30000,
+                            time: 300000,
                             max: 1,
                             errors: ["time"],
                         })
@@ -111,7 +115,7 @@ module.exports = {
                                 .setColor(0x0099ff)
                                 .setTitle("Dare")
                                 .setDescription(
-                                    `**${
+                                    `${userMention(qTaker.get("id"))}:**${
                                         messages.first().content
                                     }** \n dare by ${userMention(
                                         interaction.user.id
@@ -138,9 +142,9 @@ module.exports = {
                                 .setDescription(
                                     `${userMention(
                                         interaction.user.id
-                                    )} was to slow, so now you get a random dare: \n **${dare.get(
-                                        "content"
-                                    )}**`
+                                    )} was to slow, so now you get a random dare: \n ${userMention(
+                                        qTaker.get("id")
+                                    )}:**${dare.get("content")}**`
                                 );
                             message.edit({
                                 embeds: [truthOrDare],

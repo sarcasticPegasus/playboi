@@ -30,6 +30,10 @@ module.exports = {
             // declare buttons
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
+                    .setCustomId("todJoin")
+                    .setLabel("Join")
+                    .setStyle(ButtonStyle.Danger),
+                new ButtonBuilder()
                     .setCustomId("todLeave")
                     .setLabel("Leave")
                     .setStyle(ButtonStyle.Danger),
@@ -40,7 +44,7 @@ module.exports = {
             );
             const startOrJoin = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
-                    .setCustomId("todJoin")
+                    .setCustomId("todInitialJoin")
                     .setLabel("Join")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(true),

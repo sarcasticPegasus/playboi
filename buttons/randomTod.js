@@ -36,6 +36,10 @@ module.exports = {
             const message = interaction.message;
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
+                    .setCustomId("todJoin")
+                    .setLabel("Join")
+                    .setStyle(ButtonStyle.Danger),
+                new ButtonBuilder()
                     .setCustomId("todLeave")
                     .setLabel("Leave")
                     .setStyle(ButtonStyle.Danger),
