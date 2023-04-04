@@ -3,6 +3,7 @@ const {
     ActionRowBuilder,
     ButtonBuilder,
     ButtonStyle,
+    StringSelectMenuBuilder,
     userMention,
     EmbedBuilder,
 } = require("discord.js");
@@ -22,6 +23,39 @@ module.exports = {
     async execute(interaction) {
         const skips = interaction.options.getInteger("skips") ?? 0;
 
+        /*const selectRating = new ActionRowBuilder().addComponents(
+            new StringSelectMenuBuilder()
+                .setCustomId("selectRating")
+                .setPlaceholder("Nothing selected")
+                .setMinValues(1)
+                .setMaxValues(4)
+                .addOptions(
+                    {
+                        label: "0+",
+                        description:
+                            "get questions or dares with rating 0+ or higher",
+                        value: "first_option",
+                    },
+                    {
+                        label: "12+",
+                        description:
+                            "get questions and dares with rating 12+ or higher",
+                        value: "second_option",
+                    },
+                    {
+                        label: "16+",
+                        description:
+                            "get questions and dares with rating 16+ or higher",
+                        value: "second_option",
+                    },
+                    {
+                        label: "18+",
+                        description: "get questions and dares with rating 18+",
+                        value: "second_option",
+                    }
+                )
+        );
+        */
         const startOrJoin = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId("todInitialJoin")

@@ -68,6 +68,10 @@ module.exports = {
                             "skips"
                         )}]`
                     )
+                    .setStyle(ButtonStyle.Primary),
+                new ButtonBuilder()
+                    .setCustomId("dareNewRandom")
+                    .setLabel(`new dare`)
                     .setStyle(ButtonStyle.Primary)
             );
             const custOrRand = new ActionRowBuilder().addComponents(
@@ -115,12 +119,13 @@ module.exports = {
                                 .setColor(0x0099ff)
                                 .setTitle("Dare")
                                 .setDescription(
-                                    `${userMention(qTaker.get("id"))}:**${
+                                    `${userMention(qTaker.get("id"))}:  **${
                                         messages.first().content
-                                    }** \n dare by ${userMention(
-                                        interaction.user.id
-                                    )}`
-                                );
+                                    }**`
+                                )
+                                .setFooter({
+                                    text: `question by ${interaction.user.username}`,
+                                });
                             message.edit({
                                 embeds: [truthOrDare],
                                 components: [todButtons, skipOrComfirm],
@@ -142,10 +147,13 @@ module.exports = {
                                 .setDescription(
                                     `${userMention(
                                         interaction.user.id
-                                    )} was to slow, so now you get a random dare: \n ${userMention(
+                                    )} was to slow, so now you get a random dare: \n \n ${userMention(
                                         qTaker.get("id")
-                                    )}:**${dare.get("content")}**`
-                                );
+                                    )}:  **${dare.get("content")}**`
+                                )
+                                .setFooter({
+                                    text: `dare by ${interaction.user.username}`,
+                                });
                             message.edit({
                                 embeds: [truthOrDare],
                                 components: [todButtons, skipOrComfirm],

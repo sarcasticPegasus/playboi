@@ -46,12 +46,13 @@ module.exports = {
                 .setColor(0x0099ff)
                 .setTitle("Truth")
                 .setDescription(
-                    `${userMention(qTaker.get("id"))}:**${question.get(
+                    `${userMention(qTaker.get("id"))}:  **${question.get(
                         "content"
-                    )}** \n question by ${userMention(
-                        interaction.client.user.id
-                    )}`
-                );
+                    )}**`
+                )
+                .setFooter({
+                    text: `question by ${interaction.user.username}`,
+                });
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
                     .setCustomId("todJoin")
@@ -86,6 +87,10 @@ module.exports = {
                             "skips"
                         )}]`
                     )
+                    .setStyle(ButtonStyle.Primary),
+                new ButtonBuilder()
+                    .setCustomId("truthNewRandom")
+                    .setLabel(`new question`)
                     .setStyle(ButtonStyle.Primary)
             );
             const custOrRand = new ActionRowBuilder().addComponents(

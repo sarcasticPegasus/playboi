@@ -9,7 +9,7 @@ const { QueryTypes } = require("sequelize");
 
 module.exports = {
     data: {
-        name: "dareRandom",
+        name: "truthNewRandom",
     },
 
     async execute(interaction) {
@@ -34,33 +34,45 @@ module.exports = {
                 ephemeral: true,
             });
         } else {
+            // if anyone has already confirmed to an old question, this is set back here
+            interaction.client.sequelize.models.todSession.update(
+                {
+                    confirmed: 0,
+                },
+                {
+                    where: {
+                        id: 1,
+                    },
+                }
+            );
+            interaction.client.sequelize.models.player.update(
+                {
+                    hasConfirmed: false,
+                },
+                {
+                    where: {
+                        hasConfirmed: true,
+                    },
+                }
+            );
             const message = interaction.message;
-            const rows = await interaction.client.sequelize.models.dare.count();
+            const rows =
+                await interaction.client.sequelize.models.truth.count();
             const rand = Math.floor(Math.random() * rows) + 1;
-            const dare = await interaction.client.sequelize.models.dare.findOne(
-                {
+            const question =
+                await interaction.client.sequelize.models.truth.findOne({
                     where: { id: rand },
-                }
-            );
-            /*
-            const dare = await interaction.client.sequelize.models.dare.findAll(
-                {
-                    where: { rating: "pRating" },
-                    order: interaction.client.sequelize.random(),
-                    limit: 1,
-                }
-            );
-            */
+                });
             const truthOrDare = new EmbedBuilder()
                 .setColor(0x0099ff)
-                .setTitle("Dare")
+                .setTitle("Truth")
                 .setDescription(
-                    `${userMention(qTaker.get("id"))}:  **${dare.get(
+                    `${userMention(qTaker.get("id"))}:  **${question.get(
                         "content"
                     )}**`
                 )
                 .setFooter({
-                    text: `dare by ${interaction.user.username}`,
+                    text: `question by ${interaction.user.username}`,
                 });
             const todButtons = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
@@ -98,31 +110,19 @@ module.exports = {
                     )
                     .setStyle(ButtonStyle.Primary),
                 new ButtonBuilder()
-                    .setCustomId("dareNewRandom")
-                    .setLabel(`new dare`)
+                    .setCustomId("truthNewRandom")
+                    .setLabel(`new question`)
                     .setStyle(ButtonStyle.Primary)
             );
-            const custOrRand = new ActionRowBuilder().addComponents(
-                new ButtonBuilder()
-                    .setCustomId("truthCustom")
-                    .setLabel("Custom")
-                    .setStyle(ButtonStyle.Secondary)
-                    .setDisabled(true),
-                new ButtonBuilder()
-                    .setCustomId("truthRandom")
-                    .setLabel("Random")
-                    .setStyle(ButtonStyle.Success)
-                    .setDisabled(true)
-            );
-            //if (question) {
-            message.edit({ components: [custOrRand] });
-            await interaction.reply({
+            message.edit({
                 embeds: [truthOrDare],
                 components: [todButtons, skipOrComfirm],
             });
-            //} else {
-            //    await interaction.reply(`Could not find task with id: ${rand}`);
-            //}
+            await interaction.reply(
+                `${userMention(
+                    interaction.user.id
+                )} has choosen a different truth.`
+            );
         }
     },
 };
