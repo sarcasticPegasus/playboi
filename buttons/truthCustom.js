@@ -121,9 +121,9 @@ module.exports = {
                                 .setColor(0x0099ff)
                                 .setTitle("Truth")
                                 .setDescription(
-                                    `${userMention(qTaker.get("id"))}:  **${
+                                    `${userMention(qTaker.get("id"))}: \n${
                                         messages.first().content
-                                    }**`
+                                    }`
                                 )
                                 .setFooter({
                                     text: `question by ${interaction.user.username}`,
@@ -151,7 +151,7 @@ module.exports = {
                                         interaction.user.id
                                     )} was to slow, so now you get a random question: \n \n ${userMention(
                                         qTaker.get("id")
-                                    )}:  **${question.get("content")}**`
+                                    )}: \n ${question.get("content")}`
                                 )
                                 .setFooter({
                                     text: `question by ${interaction.user.username}`,

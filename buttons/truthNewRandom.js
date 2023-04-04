@@ -67,9 +67,9 @@ module.exports = {
                 .setColor(0x0099ff)
                 .setTitle("Truth")
                 .setDescription(
-                    `${userMention(qTaker.get("id"))}:  **${question.get(
+                    `${userMention(qTaker.get("id"))}: \n${question.get(
                         "content"
-                    )}**`
+                    )}`
                 )
                 .setFooter({
                     text: `question by ${interaction.user.username}`,

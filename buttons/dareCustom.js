@@ -119,9 +119,9 @@ module.exports = {
                                 .setColor(0x0099ff)
                                 .setTitle("Dare")
                                 .setDescription(
-                                    `${userMention(qTaker.get("id"))}:  **${
+                                    `${userMention(qTaker.get("id"))}: \n${
                                         messages.first().content
-                                    }**`
+                                    }`
                                 )
                                 .setFooter({
                                     text: `question by ${interaction.user.username}`,
@@ -149,7 +149,7 @@ module.exports = {
                                         interaction.user.id
                                     )} was to slow, so now you get a random dare: \n \n ${userMention(
                                         qTaker.get("id")
-                                    )}:  **${dare.get("content")}**`
+                                    )}: \n${dare.get("content")}`
                                 )
                                 .setFooter({
                                     text: `dare by ${interaction.user.username}`,

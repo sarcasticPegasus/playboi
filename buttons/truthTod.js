@@ -57,7 +57,7 @@ module.exports = {
                         Object.values(qGiver).toString()
                     )}, do you want to ask ${userMention(
                         Object.values(qTaker).toString()
-                    )} a custom or a random question? (You can press random up to 3 times if you are not satisfied with the first random question.)`
+                    )} a custom or a random question?`
                 );
 
             const truthOrDareButtons = new ActionRowBuilder().addComponents(

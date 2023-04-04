@@ -57,7 +57,7 @@ module.exports = {
                         Object.values(qGiver).toString()
                     )}, do you want to dare ${userMention(
                         Object.values(qTaker).toString()
-                    )} to do a custom or a random task? (You can press random up to 3 times if you are not satisfied with the first random dare.)`
+                    )} to do a custom or a random task?`
                 );
 
             const truthOrDareButtons = new ActionRowBuilder().addComponents(

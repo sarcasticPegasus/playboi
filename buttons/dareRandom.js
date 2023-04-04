@@ -55,9 +55,7 @@ module.exports = {
                 .setColor(0x0099ff)
                 .setTitle("Dare")
                 .setDescription(
-                    `${userMention(qTaker.get("id"))}:  **${dare.get(
-                        "content"
-                    )}**`
+                    `${userMention(qTaker.get("id"))}: \n${dare.get("content")}`
                 )
                 .setFooter({
                     text: `dare by ${interaction.user.username}`,
