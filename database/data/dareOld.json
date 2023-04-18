@@ -8,15 +8,12 @@
         "rating": "16"
     },
     { "content": "Post your most embarrassing selfie", "rating": "12" },
-    {
-        "content": "Hug the person on your left for 1 minute within the next week.",
-        "rating": "0"
-    },
-    { "content": "Imitate the sound of a horny elk.", "rating": "16" },
+    { "content": "Hug the person on your left for 1 minute.", "rating": "0" },
+    { "content": "Imitate a horny dog.", "rating": "16" },
     { "content": "Find out which person here smells best.", "rating": "12" },
     { "content": "Describe the last sex dream you had.", "rating": "18" },
     {
-        "content": "Rant about something you love for 2 minutes.",
+        "content": "Choose someone in the game who has to rant about something they love. The time is to be determined by a d20.",
         "rating": "0"
     },
     {
@@ -36,7 +33,7 @@
         "rating": "12"
     },
     {
-        "content": "Wear a bra on top of a Tshirt and take seductive pictures.",
+        "content": "Wear a bra above a Tshirt and take seductive pictures.",
         "rating": "16"
     },
     {
@@ -60,19 +57,7 @@
         "rating": "16"
     },
     {
-        "content": "Set your server nickname to Dill Dough for a week.",
-        "rating": "16"
-    },
-    {
-        "content": "Set your server nickname to SexBomb69 for a week.",
-        "rating": "16"
-    },
-    {
-        "content": "Set your server nickname to HotStuffXXX for a week.",
-        "rating": "16"
-    },
-    {
-        "content": "Set your server nickname to HentaiHero for a week.",
+        "content": "Google filthy/sexy nicknames and choose one as your server nickname for one week.",
         "rating": "16"
     },
     {
@@ -80,7 +65,7 @@
         "rating": "0"
     },
     {
-        "content": "The person on your left has to slap you on the butt within this week.",
+        "content": "The person on your left has to slap you on the butt.",
         "rating": "16"
     },
     {
@@ -124,48 +109,20 @@
         "rating": "12"
     },
     {
+        "content": "Choose a celebrity and act like that celebrity for 1 hour.",
+        "rating": "0"
+    },
+    {
+        "content": "Choose a fictional chararacter and act like that character for 1 hour.",
+        "rating": "0"
+    },
+    {
         "content": "Take a picture in which you use a piece of clothing in a completely wrong way. For example: use your pants as a shirt.",
         "rating": "0"
     },
     {
         "content": "Use the first word of the last five messages you sent to construct a short story.",
         "rating": "0"
-    },
-    {
-        "content": "Wear gymshorts and a gymbra and pose in front of your camera in rlly awful gymposes.",
-        "rating": "16"
-    },
-    {
-        "content": "The person on your right has to color your nails sometime this week (in a bright color!)",
-        "rating": "12"
-    },
-    {
-        "content": "Turn on your camera till the end of the game",
-        "rating": "12"
-    },
-    {
-        "content": "Take a funny picture with your toilet",
-        "rating": "12"
-    },
-    {
-        "content": "Send the last picture you took of yourself to the last person you messaged on WhatsApp/Signal",
-        "rating": "12"
-    },
-    {
-        "content": "Call someone random and laugh for 30 seconds then hang up without saying anything.",
-        "rating": "12"
-    },
-    {
-        "content": "You and the person on your left change names on the Server for 2 days.",
-        "rating": "12"
-    },
-    {
-        "content": "Write a blurb to an erotic novel.",
-        "rating": "16"
-    },
-    {
-        "content": "Mute yourself until your next turn. Your only way of communication is the reaction emojis in the call.",
-        "rating": "12"
     },
     {
         "content": "Take a picture on which you strike a pose that could only fit a nude (or thirsttrap). Clothes are allowed.",

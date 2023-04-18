@@ -86,7 +86,7 @@ module.exports = {
                     // declare buttons
                     const skipOrComfirm = new ActionRowBuilder().addComponents(
                         new ButtonBuilder()
-                            .setCustomId("confirm")
+                            .setCustomId("todConfirm")
                             .setLabel(
                                 `Confirm [${
                                     aktSession.get("confirmed") + 1
@@ -95,7 +95,7 @@ module.exports = {
                             .setStyle(ButtonStyle.Success)
                             .setDisabled(true),
                         new ButtonBuilder()
-                            .setCustomId("skip")
+                            .setCustomId("todSkip")
                             .setLabel(
                                 `Skip [${qGiver.get("skips")}/${aktSession.get(
                                     "skips"
@@ -195,7 +195,7 @@ module.exports = {
                 } else {
                     const skipOrComfirm = new ActionRowBuilder().addComponents(
                         new ButtonBuilder()
-                            .setCustomId("confirm")
+                            .setCustomId("todConfirm")
                             .setLabel(
                                 `Confirm [${aktSession.get(
                                     "confirmed"
