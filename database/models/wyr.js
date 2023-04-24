@@ -12,7 +12,12 @@ module.exports = async (sequelize) => {
                 autoIncrement: true,
                 primaryKey: true,
             },
-            content: {
+            either: {
+                type: DataTypes.TEXT,
+                allowNull: false,
+                unique: true,
+            },
+            or: {
                 type: DataTypes.TEXT,
                 allowNull: false,
                 unique: true,

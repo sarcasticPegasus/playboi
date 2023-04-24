@@ -14,7 +14,13 @@ module.exports = {
         });
 
         if (question) {
-            await interaction.reply(question.get("content"));
+            await interaction.reply(
+                "Would you rather " +
+                    question.get("either") +
+                    " " +
+                    question.get("or") +
+                    "?"
+            );
         } else {
             console.log(`Error: Could not find question with id: ${rand}`);
         }

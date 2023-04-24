@@ -12,51 +12,9 @@
         "content": "Hug the person on your left for 1 minute within the next week.",
         "rating": "0"
     },
+    { "content": "Imitate the sound of a horny elk.", "rating": "16" },
+    { "content": "Find out which person here smells best.", "rating": "12" },
     { "content": "Describe the last sex dream you had.", "rating": "18" },
-    { "content": "Give me a lap dance.", "rating": "18" },
-    { "content": "Try turning me on with the best you got.", "rating": "18" },
-    { "content": "Give us a 1 minute dirty talk.", "rating": "18" },
-    { "content": "Give us your best fake orgasm.", "rating": "18" },
-    { "content": "Switch on your camera and do 5 push-ups.", "rating": "12" },
-    { "content": "Imitate 5 Emojis.", "rating": "12" },
-    { "content": "Propose to me.", "rating": "12" },
-    { "content": "Send 'happy birthday'", "rating": "12" },
-    {
-        "content": "Lipsync to the first singable song on your current playlist passionately.",
-        "rating": "12"
-    },
-    {
-        "content": "Screenshare your browser history and read it aloud.",
-        "rating": "12"
-    },
-    {
-        "content": "Try two tongue-twisters, one in german and one in english.",
-        "rating": "12"
-    },
-    {
-        "content": "Send the second person in your contact list a 'look behind you'.",
-        "rating": "12"
-    },
-    {
-        "content": "Update your status on all social media apps you have to 'just married'.",
-        "rating": "12"
-    },
-    {
-        "content": "Switch on your camera and dance on an imaginary pole.",
-        "rating": "18"
-    },
-    {
-        "content": "If you don't wear a t-shirt and a hoodie, put those on. Switch on your camera and striptease to a song, but only undress your hoodie.",
-        "rating": "16"
-    },
-    {
-        "content": "Until your next turn, you can only whisper.",
-        "rating": "0"
-    },
-    {
-        "content": "Write a naughty scene, use c.a. 100 words",
-        "rating": "18"
-    },
     {
         "content": "Rant about something you love for 2 minutes.",
         "rating": "0"
@@ -71,6 +29,10 @@
     },
     {
         "content": "Play the melody of a song (karaoke vid) only to sing the lyrics of a completely different song above that melody.",
+        "rating": "12"
+    },
+    {
+        "content": "Tell us a secret someone else told you that you haven't told anyone else.",
         "rating": "12"
     },
     {
@@ -154,11 +116,19 @@
         "rating": "18"
     },
     {
+        "content": "Show the first picture you took with your cell phone.",
+        "rating": "0"
+    },
+    {
         "content": "Show the last picture you deleted, if available. Else, show the first picture you took with your cell phone.",
         "rating": "12"
     },
     {
         "content": "Take a picture in which you use a piece of clothing in a completely wrong way. For example: use your pants as a shirt.",
+        "rating": "0"
+    },
+    {
+        "content": "Use the first word of the last five messages you sent to construct a short story.",
         "rating": "0"
     },
     {
@@ -182,6 +152,10 @@
         "rating": "12"
     },
     {
+        "content": "Call someone random and laugh for 30 seconds then hang up without saying anything.",
+        "rating": "12"
+    },
+    {
         "content": "You and the person on your left change names on the Server for 2 days.",
         "rating": "12"
     },
@@ -192,10 +166,6 @@
     {
         "content": "Mute yourself until your next turn. Your only way of communication is the reaction emojis in the call.",
         "rating": "12"
-    },
-    {
-        "content": "Stop the time you need to completely undress. Please *don't* turn on your camera for this one. Unless you want...",
-        "rating": "16"
     },
     {
         "content": "Take a picture on which you strike a pose that could only fit a nude (or thirsttrap). Clothes are allowed.",
