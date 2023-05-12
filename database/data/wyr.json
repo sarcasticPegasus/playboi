@@ -2,11 +2,161 @@
     {
         "either": "Live on the beach",
         "or": "Live in a cabin in the woods",
-        "rating": "0+"
+        "rating": "0"
     },
     {
         "either": "Be feared by all",
         "or": "Be loved by all",
-        "rating": "0+"
+        "rating": "0"
+    },
+    {
+        "either": "Have a pet",
+        "or": "Have a child",
+        "rating": "0"
+    },
+    {
+        "either": "Be a famous influencer",
+        "or": "Be a famous actor",
+        "rating": "0"
+    },
+    {
+        "either": "Lose your passport",
+        "or": "Lose your smartphone",
+        "rating": "0"
+    },
+    {
+        "either": "Hold hands",
+        "or": "Hug",
+        "rating": "12"
+    },
+    {
+        "either": "Kiss",
+        "or": "Cuddle",
+        "rating": "12"
+    },
+    {
+        "either": "Kiss in the rain",
+        "or": "Kiss in the dark",
+        "rating": "0"
+    },
+    {
+        "either": "Date your best friend",
+        "or": "Date a stranger",
+        "rating": "0"
+    },
+    {
+        "either": "Watch the sun down",
+        "or": "Watch the sun dawn",
+        "rating": "0"
+    },
+    {
+        "either": "Watch the sun dawn or down",
+        "or": "Watch the full moon",
+        "rating": "0"
+    },
+    {
+        "either": "Text someone",
+        "or": "Call someone",
+        "rating": "0"
+    },
+    {
+        "either": "Watch a movie",
+        "or": "Read a book",
+        "rating": "0"
+    },
+    {
+        "either": "Date a superhero",
+        "or": "Date a spy",
+        "rating": "0"
+    },
+    {
+        "either": "Date a superhero",
+        "or": "Be a superhero",
+        "rating": "0"
+    },
+    {
+        "either": "Be on a dating show",
+        "or": "Be on a survival show",
+        "rating": "0"
+    },
+    {
+        "either": "Have super strenght",
+        "or": "Have super speed",
+        "rating": "0"
+    },
+    {
+        "either": "Have your dream partner",
+        "or": "Have your dream job",
+        "rating": "0"
+    },
+    {
+        "either": "Get married",
+        "or": "Never get married",
+        "rating": "0"
+    },
+    {
+        "either": "Be friends with an ex",
+        "or": "Never talk to your ex again",
+        "rating": "16"
+    },
+    {
+        "either": "Skinny dip in the ocean",
+        "or": "Skinny dip in a lake",
+        "rating": "16"
+    },
+    {
+        "either": "Get a good morning text",
+        "or": "Get a good night text",
+        "rating": "12"
+    },
+    {
+        "either": "Do it with your socks on",
+        "or": "Do it with your socks off",
+        "rating": "18"
+    },
+    {
+        "either": "Kiss your ex",
+        "or": "Kiss your enemy",
+        "rating": "16"
+    },
+    {
+        "either": "Kiss everyone on this server",
+        "or": "Sleep with one person on this server",
+        "rating": "18"
+    },
+    {
+        "either": "Never cuddle ever again",
+        "or": "Never have sex ever again",
+        "rating": "18"
+    },
+    {
+        "either": "Make the first move",
+        "or": "Wait for someone else to make the first move",
+        "rating": "0"
+    },
+    {
+        "either": "Have your guests be too early",
+        "or": "Have your guests be too late",
+        "rating": "0"
+    },
+    {
+        "either": "Watch a romantic comedy",
+        "or": "Watch a horror movie",
+        "rating": "0"
+    },
+    {
+        "either": "Get dirty texts (consentually)",
+        "or": "Get dirty pics (consentually)",
+        "rating": "18"
+    },
+    {
+        "either": "Get dirty texts (non-consentually)",
+        "or": "Get dirty pics (non-consentually)",
+        "rating": "18"
+    },
+    {
+        "either": "Sleep with someone on the first date",
+        "or": "Wait six months before having sex for the first time",
+        "rating": "18"
     }
 ]
