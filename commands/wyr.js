@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const wyr = require("../database/models/wyr");
 
 module.exports = {
@@ -13,16 +13,24 @@ module.exports = {
             where: { id: rand },
         });
 
-        if (question) {
-            await interaction.reply(
-                "Would you rather " +
-                    question.get("either") +
-                    " " +
-                    question.get("or") +
-                    "?"
-            );
-        } else {
-            console.log(`Error: Could not find question with id: ${rand}`);
-        }
+        const wouldYouRather = new EmbedBuilder()
+            .setColor(0x0099ff)
+            .setTitle("WYR")
+            .setDescription(`Would you rather...`)
+            .addFields({
+                name: `:a::  ${question.get("either")}.`,
+                value: `.`,
+            })
+            .addFields({
+                name: `:a::  ${question.get("or")}.`,
+                value: `.`,
+            });
+
+        const message = await interaction.reply({
+            embeds: [wouldYouRather],
+        });
+
+        message.react("🅰️");
+        message.react("🅱️");
     },
 };
