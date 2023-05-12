@@ -1,4 +1,10 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const {
+    SlashCommandBuilder,
+    EmbedBuilder,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+} = require("discord.js");
 const wyr = require("../database/models/wyr");
 
 module.exports = {
@@ -19,18 +25,27 @@ module.exports = {
             .setDescription(`Would you rather...`)
             .addFields({
                 name: `:a::  ${question.get("either")}.`,
-                value: `.`,
+                value: `-`,
             })
             .addFields({
-                name: `:a::  ${question.get("or")}.`,
-                value: `.`,
+                name: `:b::  ${question.get("or")}.`,
+                value: `-`,
             });
+
+        const wyrButtons = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("wyrA")
+                .setLabel("🅰️")
+                .setStyle(ButtonStyle.Secondary),
+            new ButtonBuilder()
+                .setCustomId("wyrB")
+                .setLabel("🅱️")
+                .setStyle(ButtonStyle.Secondary)
+        );
 
         const message = await interaction.reply({
             embeds: [wouldYouRather],
+            components: [wyrButtons],
         });
-
-        message.react("🅰️");
-        message.react("🅱️");
     },
 };
