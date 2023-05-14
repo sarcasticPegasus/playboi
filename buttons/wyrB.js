@@ -28,9 +28,12 @@ module.exports = {
             fieldOr.value += `\n- ${userMention(interaction.user.id)}`;
         }
         fieldEither.value = fieldEither.value.replace(
-            `${userMention(interaction.user.id)}`,
+            `- ${userMention(interaction.user.id)}`,
             ``
         );
+        if (fieldEither.value.length == 0) {
+            fieldEither.value = "-";
+        }
         const finalEmbed = EmbedBuilder.from(embed).setFields(
             fieldEither,
             fieldOr
