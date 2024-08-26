@@ -13,7 +13,7 @@ module.exports = {
         .addIntegerOption((option) =>
             option
                 .setName("kind")
-                .setDescription("The kind of die you want to roll")
+                .setDescription("The kind of die you want to roll (for example: d6, d20 etc)")
                 .setRequired(true)
         ),
     async execute(interaction) {
