@@ -33,9 +33,20 @@ module.exports = {
         // Reading data of constant tables
         templates.forEach((template, templateName) => {
             const model = client.sequelize.models[templateName];
-            template.forEach((element) => {
-                promises.push(model.upsert(element));
-            });
+            if (templateName == "games") {
+                template.forEach(async(element) => {
+                    const games = await client.sequelize.models.games.findAll({
+                        where: { name: element.name, owner: element.owner },
+                    });
+                    if (games.length == 0) {
+                        promises.push(model.upsert(element));
+                    }
+                });
+            } else{
+                template.forEach((element) => {
+                    promises.push(model.upsert(element));
+                });
+            }
         });
 
         // Executing promises
